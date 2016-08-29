@@ -64,6 +64,18 @@ module.exports = {
         loader: 'vue-html'
       },
       {
+        test: /\.node$/,
+        loader: 'node-loader'
+      },
+      {
+        test: /\/sqlite3$/,
+        loader: 'node-loader'
+      },
+      {
+        test: /\/node-gyp\.js|\/npm-cli\.js$/,
+        loader: 'node-loader'
+      },
+      {
         test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url',
         query: {
@@ -93,5 +105,8 @@ module.exports = {
   },
   eslint: {
     formatter: require('eslint-friendly-formatter')
+  },
+  externals: {
+    'sqlite3': 'commonjs sqlite3'
   }
 }
